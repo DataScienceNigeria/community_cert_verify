@@ -6,7 +6,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen m-auto items-center justify-center p-24">
       <div className="bg-white rounded-xl">
-        <form className="flex flex-col items-center p-6">
+        <h1 className="text-2xl text-center p-6 font-semibold uppercase">Generate your Award</h1>
+        <form className="flex flex-col p-6">
           <div className="mb-8 w-[350px] lg:w-[500px]">
             <label htmlFor="email" className="block text-sm font-bold text-gray-700">
               Email

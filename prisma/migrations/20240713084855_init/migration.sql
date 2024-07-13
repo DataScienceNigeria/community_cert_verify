@@ -3,8 +3,10 @@ CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "name" TEXT,
-    "role" TEXT NOT NULL DEFAULT 'student',
+    "role" TEXT DEFAULT 'student',
     "password" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3),
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -18,6 +20,8 @@ CREATE TABLE "Student_Certificate" (
     "email" TEXT NOT NULL,
     "certificationName" TEXT NOT NULL,
     "issuedBy" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3),
 
     CONSTRAINT "Student_Certificate_pkey" PRIMARY KEY ("id")
 );

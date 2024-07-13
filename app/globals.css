@@ -1,16 +1,12 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
   @layer base {
     :root {
-      --background: gray;
+      --background: #d3d3d3;
     }
 
-    .dark {
-      --background: black;
-      --foreground: white;
-    }
   }
 
   body {
