@@ -28,7 +28,7 @@ export default function Home() {
             <label htmlFor="certificateId" className="block text-sm font-bold text-gray-700">
               Certificate ID
             </label>
-            <input type="text" name="certificateId" id="certificateId" className="mt-1 p-2 border border-gray-300 rounded-md w-[100%]"  placeholder="John Doe"/>
+            <input type="text" name="certificateId" id="certificateId" className="mt-1 p-2 border border-gray-300 rounded-md w-[100%]"  placeholder="DSNAI{the seven numbers}"/>
           </div>
 
           <div className="mb-8 w-[350px] lg:w-[500px]">

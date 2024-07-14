@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <nav className='h-10 flex justify-between items-center px-8 my-4'>
       <div>
-        <h1 className='text-2xl'>DSN Comm</h1>
+        <h1 className='text-2xl font-extrabold'>DSN Comm</h1>
       </div>
         <div className='cursor-pointer z-30 md:hidden'>
           <MobileMenu />

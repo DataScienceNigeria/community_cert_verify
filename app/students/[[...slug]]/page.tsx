@@ -1,7 +1,10 @@
 import React from 'react'
 
-const page = ({ params }: { params: { slug: string } }) => {
-  console.log(params.slug)
+const page = ({ params }: { params: { slug: string[] } }) => {
+  const decodedParams = params.slug.map(decodeURIComponent);
+  
+  console.log(decodedParams);
+  
   return (
     <div>
       <h1>
