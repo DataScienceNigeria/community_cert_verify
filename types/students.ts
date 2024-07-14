@@ -17,7 +17,7 @@ export type StudentsData = {
     password:       string
   }
 
-  export type StudentCertificatedetails = {
+  export type StudentCertificateDetails = {
     id: string;
     certificateID: string;
     studentID: string;

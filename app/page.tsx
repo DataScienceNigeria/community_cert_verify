@@ -53,7 +53,6 @@ export default function Home() {
               name="certificateId"
               register={register}
               error={errors.certificateId}
-              valueAsNumber
               className="mt-1 p-2 border border-gray-300 rounded-md w-[100%]"
             />
           </div>

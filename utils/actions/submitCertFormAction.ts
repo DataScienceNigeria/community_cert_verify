@@ -1,28 +1,23 @@
 "use server";
-import { StudentCertificatedetails } from "@/types/students";
+import { StudentCertificateDetails } from "@/types/students";
 import { redirect } from 'next/navigation'
 import { studentQuery } from "@/utils/queries/studentQuery";
-import { z } from 'zod'
 
-const authSchema = z.object({
-    certificateId: z.string().length(12),
-    email: z.string().email(),
-  })
+  export const HandleGetStudentsCertificateForm = async ( certificateId: string, email: string
+    ):Promise<StudentCertificateDetails>  => {
 
-  export const HandleGetStudentsCertificateForm = async ( certificateId: string, email:string ): Promise<StudentCertificatedetails> => {
+    const data = {
+        certificateId: certificateId as string,
+        email: email as string,
+    };
 
-    const data = authSchema.parse({
-        certificateId: certificateId,
-        email: email
-    })
+    const result = await studentQuery(data)
+    console.log(result)
     
-    // check Database
-    try {
-        const result = await studentQuery(data)
+    if (result) {
         redirect(`/students/${result?.certificateID}/${result?.email}/${result?.name}`);
-
-    } catch (error) {
-        throw new Error("Error in handling form");
+    }else{
+        redirect(`/no_record`);
     }
 }
 
