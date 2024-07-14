@@ -1,6 +1,4 @@
 import React from 'react'
-import {data} from "@/db/data";
-import NavBar from '@/components/NavBar';
 
 const page = () => {
   return (
