@@ -36,3 +36,31 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+model User {
+  id                     String               @id @default(uuid())
+  email                  String               @unique
+  name                   String?
+  role                   Role?                @default(ADMIN)
+  password               String
+  createdAt              DateTime?            @default(now())
+  updatedAt              DateTime?            @updatedAt
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+}
+
+model Student_Certificate {
+  id                String                   @id @default(uuid())
+  certificateID     String
+  studentID         String
+  name              String
+  email             String
+  certificationName String
+  issuedBy          String
+  createdAt              DateTime?            @default(now())
+  updatedAt              DateTime?            @updatedAt
+}

@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "mongodb"
+  url      = env("MongoDB_URL")
 }
 
 model User {
-  id                     String               @id @default(uuid())
+  id                     String @id @default(auto()) @map("_id") @db.ObjectId
   email                  String               @unique
   name                   String?
   role                   Role?                @default(ADMIN)
@@ -23,7 +23,7 @@ enum Role {
 }
 
 model Student_Certificate {
-  id                String                   @id @default(uuid())
+  id                String @id @default(auto()) @map("_id") @db.ObjectId
   certificateID     String
   studentID         String
   name              String
