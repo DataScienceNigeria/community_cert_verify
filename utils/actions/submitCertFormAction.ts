@@ -2,6 +2,7 @@
 import { StudentCertificateDetails } from "@/types/students";
 import { redirect } from 'next/navigation'
 import { studentQuery } from "@/utils/queries/studentQuery";
+import clsx from "clsx";
 
   export const HandleGetStudentsCertificateForm = async ( certificateId: string, email: string
     ):Promise<StudentCertificateDetails>  => {
@@ -20,7 +21,6 @@ import { studentQuery } from "@/utils/queries/studentQuery";
         redirect(`/no_record`);
     }
 }
-
 
 
 // export const HandleGetStudentsCertificateForm = async (
