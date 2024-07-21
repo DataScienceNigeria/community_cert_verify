@@ -3,6 +3,13 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 
+declare module "next-auth" {
+    interface Session {
+      id: string;
+      role: string;
+    }
+  }
+
 export const authOptions: NextAuthOptions = {
     session : {
         strategy: "jwt",
@@ -59,12 +66,17 @@ export const authOptions: NextAuthOptions = {
             }
             return token
         },
+        async session({ session, token }) {
+            if (token) {
+                session.id = token.id as string;
+                session.role = token.role as string;
+            }
+            return session;
+          },
         async redirect({ url, baseUrl }) {
-            // Allows relative callback URLs
             if (url.startsWith("/")) return `${baseUrl}${url}`;
-            // Allows callback URLs on the same origin
             else if (new URL(url).origin === baseUrl) return url;
             return baseUrl;
-          },
+        },
     }
 }
