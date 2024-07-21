@@ -4,6 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
+// import { SpinnerColorRing } from "@/components/Spinner"
+import { ColorRing } from 'react-loader-spinner'
+
 
 import { Button } from "@/components/ui/button"
 import {
@@ -18,6 +21,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import { signIn } from "next-auth/react"
+import { useState } from "react"
 
 const FormSchema = z.object({
     email: z.string().email({
@@ -33,6 +37,8 @@ export function LoginForm() {
     
   const router = useRouter()
 
+  const [loading, setLoading] = useState(false)
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -42,6 +48,7 @@ export function LoginForm() {
   })
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    setLoading(true)
     const response = await signIn("credentials", {
         email: data.email,
         password: data.password,
@@ -52,7 +59,10 @@ export function LoginForm() {
 
     if (!response?.error) {
         router.push("/dashboard")
+        setTimeout(() => setLoading(false), 6000)
     }else {
+
+      setLoading(false)
         toast({
             title: "You are not signed in as an Admin",
             description: (
@@ -65,8 +75,10 @@ export function LoginForm() {
   }
 
   return (
+    <>
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <h1 className="text-2xl text-center">Admin Login</h1>
         <FormField
           control={form.control}
           name="email"
@@ -74,7 +86,7 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="john@gmail.com" type="email" {...field} />
+                <Input placeholder="john@gmail.com" type="email" {...field} className="rounded-xl" />
               </FormControl>
               <FormDescription>
                 Kindly enter your email address
@@ -91,7 +103,7 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="password" type="password" {...field} />
+                <Input placeholder="password" type="password" {...field} className="rounded-xl"/>
               </FormControl>
               <FormDescription>
                 Kindly enter your password
@@ -99,9 +111,22 @@ export function LoginForm() {
               <FormMessage />
             </FormItem>
           )}
+
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="bg-green-500 rounded-xl w-full text-white flex items-center justify-center space-x-10">
+          <ColorRing
+            visible={loading}
+            height="40"
+            width="40"
+            ariaLabel="color-ring-loading"
+            wrapperStyle={{}}
+            wrapperClass="color-ring-wrapper"
+            colors={['#abbd81', '#f47e60', '#abbd81', '#abbd81', '#abbd81']}
+            />
+           <span className="ml-4">Submit</span> 
+        </Button>
       </form>
     </Form>
+    </>
   )
 }

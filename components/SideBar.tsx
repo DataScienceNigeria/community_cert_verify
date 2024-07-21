@@ -2,9 +2,8 @@
 
 import React from 'react'
 import { usePathname } from 'next/navigation';
-import { types } from 'util';
 import Link from 'next/link';
-import path from 'path';
+import { signOut } from 'next-auth/react';
 
 // Icons 
 import { LuLayoutDashboard } from "react-icons/lu";
@@ -12,7 +11,8 @@ import { GrUserAdmin } from "react-icons/gr";
 import { PiUploadSimpleBold } from "react-icons/pi";
 import { LiaCertificateSolid } from "react-icons/lia";
 import { TbBrandGoogleAnalytics } from "react-icons/tb";
-import { IoSettingsOutline } from "react-icons/io5";
+import { IoExitOutline } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
 
 
 
@@ -45,9 +45,14 @@ export const sideNav = [
         path: '/analytics'
     },
     {
-        title: 'Settings',
-        icon: IoSettingsOutline,
-        path: '/settings'
+        title: 'Profile',
+        icon: CgProfile,
+        path: '/profile'
+    },
+    {
+        title: 'Sign Out',
+        icon: IoExitOutline,
+        path: '/signout'
     },
 ]
 
@@ -55,6 +60,11 @@ const SideBar = () => {
 
     const pathname: string = usePathname();
     console.log(pathname)
+
+    const handleSignOut = (e: any) => {
+        e.preventDefault();
+        signOut({ callbackUrl: '/login' });
+    }
     
   return (
     
@@ -63,7 +73,7 @@ const SideBar = () => {
         {
             sideNav.map((item, index) => (
                 <div key={index} className={`flex items-center   p-4 hover:border-b-2 cursor-pointer transition-all ${pathname === item.path ? 'bg-green-500 text-white' : 'bg-white'} font-semibold`}>       
-                    <Link href={item.path} className='flex items-center gap-x-4 justify-between'>
+                    <Link href={item.path} className='flex items-center gap-x-4 justify-between' onClick={item.title === 'Sign Out' ? handleSignOut : undefined}>
                         <item.icon />
                         <span>{item.title}</span>
                     </Link>
