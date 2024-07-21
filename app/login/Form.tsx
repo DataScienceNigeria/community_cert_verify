@@ -4,10 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
-// import { SpinnerColorRing } from "@/components/Spinner"
 import { ColorRing } from 'react-loader-spinner'
-
-
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -24,19 +21,16 @@ import { signIn } from "next-auth/react"
 import { useState } from "react"
 
 const FormSchema = z.object({
-    email: z.string().email({
-        message: "Invalid email address.",
-    }),
-    password: z.string().min(6, {
-        message: "Password must be at least 6 characters."
-    })
+  email: z.string().email({
+    message: "Invalid email address.",
+  }),
+  password: z.string().min(6, {
+    message: "Password must be at least 6 characters."
+  })
 })
 
-
 export function LoginForm() {
-    
   const router = useRouter()
-
   const [loading, setLoading] = useState(false)
 
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -50,32 +44,30 @@ export function LoginForm() {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     setLoading(true)
     const response = await signIn("credentials", {
-        email: data.email,
-        password: data.password,
-        redirect: false,
+      email: data.email,
+      password: data.password,
+      redirect: false,
     })
 
-    console.log(response);
+    console.log(response)
 
     if (!response?.error) {
-        router.push("/dashboard")
-        setTimeout(() => setLoading(false), 6000)
-    }else {
-
+      router.push("/dashboard")
+      setTimeout(() => setLoading(false), 6000)
+    } else {
       setLoading(false)
-        toast({
-            title: "You are not signed in as an Admin",
-            description: (
-                <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                <code className="text-red">{JSON.stringify(data, null, 2)}</code>
-                </pre>
-            ),
-        })
+      toast({
+        title: "You are not signed in as an Admin",
+        description: (
+          <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+            <code className="text-red">{JSON.stringify(data, null, 2)}</code>
+          </pre>
+        ),
+      })
     }
   }
 
   return (
-    <>
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
         <h1 className="text-2xl text-center">Admin Login</h1>
@@ -95,7 +87,6 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="password"
@@ -103,7 +94,7 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="password" type="password" {...field} className="rounded-xl"/>
+                <Input placeholder="password" type="password" {...field} className="rounded-xl" />
               </FormControl>
               <FormDescription>
                 Kindly enter your password
@@ -111,22 +102,22 @@ export function LoginForm() {
               <FormMessage />
             </FormItem>
           )}
-
         />
-        <Button type="submit" className="bg-green-500 rounded-xl w-full text-white flex items-center justify-center space-x-10">
-          <ColorRing
-            visible={loading}
-            height="40"
-            width="40"
-            ariaLabel="color-ring-loading"
-            wrapperStyle={{}}
-            wrapperClass="color-ring-wrapper"
-            colors={["black", "black", "black", "black", "black"]}
+        <Button type="submit" className="bg-green-500 rounded-xl w-full text-white flex items-center justify-center space-x-2">
+          {loading && (
+            <ColorRing
+              visible={true}
+              height="40"
+              width="40"
+              ariaLabel="color-ring-loading"
+              wrapperStyle={{}}
+              wrapperClass="color-ring-wrapper"
+              colors={["black", "black", "black", "black", "black"]}
             />
-           <span className="ml-4">Submit</span> 
+          )}
+          <span className="ml-4">Submit</span>
         </Button>
       </form>
     </Form>
-    </>
   )
 }
