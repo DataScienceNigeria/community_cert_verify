@@ -38,3 +38,23 @@ export const getAdminUsers = async () => {
       console.error(error)
     }
   };
+
+export const getOneAdmin = async({ email }: { email: string}) => {
+    const admin = await prisma.user.findFirst({ 
+        where: { 
+            email: email
+        } 
+    });
+    return admin;
+}
+
+export const createAdmin = async (data: any) => {
+    try {
+        const result = await prisma.user.create({ data });
+        revalidatePath('/', "layout");
+        return result;
+    } catch (error) {
+        const err = error as Error;
+        console.error(err.message);
+    }
+}   

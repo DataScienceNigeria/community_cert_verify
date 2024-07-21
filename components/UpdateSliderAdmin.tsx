@@ -10,7 +10,6 @@ import {
   SheetClose,
   SheetContent,
   SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -18,7 +17,7 @@ import {
 import { useRouter } from 'next/navigation';
 
 // Update the admin user
-export const UpdateSlider = (admin: any, open: string) => {
+export const UpdateSliderAdmin = (admin: any, open: string) => {
 
   const router = useRouter();
 
@@ -29,6 +28,7 @@ export const UpdateSlider = (admin: any, open: string) => {
       email: formData.get('email') ? formData.get('email') : admin.email,
       name: formData.get('name') ? formData.get('name') : admin.name,
       role: formData.get('role') ? formData.get('role') : admin.role,
+      phone: formData.get('phone') ? formData.get('phone') : admin.phone,
     };
     const result = await UpdateAdmin(admin.id, updatedData);
       window.location.reload();
@@ -58,6 +58,12 @@ export const UpdateSlider = (admin: any, open: string) => {
               Name
             </Label>
             <Input id="name" name="name" placeholder={admin.name} type="text" className="col-span-3" />
+          </div>
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="Phone Number" className="text-right">
+              Phone Number
+            </Label>
+            <Input id="phone" name="phone" placeholder={admin.phone} type="text" className="col-span-3" />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">

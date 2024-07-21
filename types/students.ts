@@ -16,6 +16,7 @@ export type StudentsData = {
     name:           string
     role:           string        
     password:       string
+    phone:          string
   }
 
   export type StudentCertificateDetails = {

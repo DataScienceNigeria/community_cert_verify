@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import {getAdminUsers} from "@/utils/queries/admins/manipulateAdmins" 
 import { User } from "@/types/students"
-import { Button } from './ui/button';
-import {UpdateSlider} from './UpdateSliderAdmin';
+import {UpdateSliderAdmin} from './UpdateSliderAdmin';
 import {WarnAction} from './WarnActionAdmin';
+import {AddSliderAdmin} from './AddAdmin';
+import { useSession } from "next-auth/react"
 
 import {
   Table,
@@ -29,6 +29,11 @@ const CertificateTable = () => {
   const [sort, setSort] = useState('id');
   const [order, setOrder] = useState('asc');
   const [AdminsToDisplayAfterFilter, setAdminsToDisplayAfterFilter] = useState<User[]>([]);
+
+
+  const { data: session, status } = useSession()
+
+
 
 
   // Pagination navigation of the table
@@ -101,6 +106,9 @@ const CertificateTable = () => {
 
   return (
     <div className='w-[100%] md:px-4'>
+      
+     { session?.role === "superadmin" ? <AddSliderAdmin /> : null }
+
       {error && <p className='p-2'>{error}</p>}
       <input
         type="text"
@@ -121,7 +129,10 @@ const CertificateTable = () => {
             <TableHead onClick={() => toggleSort('email')}>Email</TableHead>
             <TableHead onClick={() => toggleSort('name')}>Name</TableHead>
             <TableHead onClick={() => toggleSort('role')}>Role</TableHead>
-            <TableHead className='border bg-gray-100 text-center'>Actions</TableHead>
+            { session?.role === "superadmin" ?
+              <TableHead className='border bg-gray-100 text-center'>Actions</TableHead> :
+              null
+            }
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -131,14 +142,18 @@ const CertificateTable = () => {
               <TableCell>{admin.email}</TableCell>
               <TableCell>{admin.name}</TableCell>
               <TableCell>{admin.role}</TableCell>
+
+              { session?.role === "superadmin" ?
+                
               <TableCell className='md:space-x-4 text-center border-2 space-y-2 lg:space-y-0'>
                 {WarnAction(admin, "Delete", `
                   This action cannot be undone. This will permanently delete the
                   user and remove his/her from database. Do you want to continue?  
                 `)}
-
-                {UpdateSlider(admin, "Update")}
-              </TableCell>
+                {UpdateSliderAdmin(admin, "Update")}
+              </TableCell> : null
+              
+              }
             </TableRow>
           ))}
         </TableBody>
