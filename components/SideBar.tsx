@@ -63,7 +63,7 @@ const SideBar = () => {
 
     const handleSignOut = (e: any) => {
         e.preventDefault();
-        signOut({ callbackUrl: '/login' });
+        signOut({ callbackUrl: '/login',  redirect:true  });
     }
     
   return (
