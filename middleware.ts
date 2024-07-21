@@ -21,17 +21,12 @@ export default withAuth(
   function middleware(req) {
     const token = req.nextauth.token;
     
-    // Additional debugging information
-    console.log("Middleware execution context:", req.url, "Token:", token);
-    
     // Check for token and redirect if not present
     if (!token) {
-      console.log("No token found, redirecting to login");
       return NextResponse.redirect("/login");
     }
     
     // Token is present, continue to next response
-    console.log("Token found, proceeding to next response");
     return NextResponse.next();
   },
 );
