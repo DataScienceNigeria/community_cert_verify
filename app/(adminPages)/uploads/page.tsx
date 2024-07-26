@@ -22,7 +22,7 @@ const Uploads = () => {
 
 
     if(!result) {
-      return toast(`Did you upload any record or you might want to check your file?`,  { style: { backgroundColor: 'red', color: 'white' } });
+      return toast(`Woops!. Your file fails our validity check. Please check and upload again.`,  { style: { backgroundColor: 'red', color: 'white' } });
     }
     console.log(result);
     notify(result);
