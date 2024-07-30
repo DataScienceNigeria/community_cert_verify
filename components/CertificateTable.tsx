@@ -126,7 +126,7 @@ const CertificateTable = () => {
       {error && <p className='p-2'>{error}</p>}
       <input
         type="text"
-        className='p-2 mb-2 rounded-xl border w-[100%] md:w-2/3 lg:w-1/3'
+        className='p-2 mb-4 rounded-xl border w-[100%] md:w-2/3 lg:w-1/3'
         value={filter}
         onChange={e => {
           setFilter(e.target.value);

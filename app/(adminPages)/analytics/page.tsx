@@ -34,7 +34,7 @@ interface CertificateAnalyticsItem {
 
 function parseDate(dateString: string): Date {
   const [day, month, year] = dateString.split('/').map(Number);
-  return new Date(year, month - 1, day);
+  return new Date(year, month - 1, day+1);
 }
 
 const CustomTooltip = ({ active, payload, label }: TooltipProps<number, string>) => {
