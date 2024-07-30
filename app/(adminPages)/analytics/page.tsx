@@ -27,7 +27,7 @@ const chartConfig = {
 };
 
 interface CertificateAnalyticsItem {
-  certificationName: string;
+  certificationName: string | null;
   issuedDate: string;
   count: number;
 }
