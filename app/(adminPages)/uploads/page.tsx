@@ -32,7 +32,6 @@ const Uploads = () => {
     return result;
   }
 
-  
 
   return (
     <div className='flex flex-col md:flex-row  items-center justify-center gap-x-2 space-y-4 md:space-y-0 h-[calc(100vh-100px)]'>
