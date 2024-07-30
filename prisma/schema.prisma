@@ -26,12 +26,12 @@ enum Role {
 model Student_Certificate {
   id                String @id @default(auto()) @map("_id") @db.ObjectId
   certificateID     String
-  studentID         String?
-  name              String?
-  email             String?
-  certificationName String?
+  studentID         String
+  name              String
+  email             String
+  certificationName String
   link              String?
-  issuedBy          String?
+  issuedBy          String
   issuedDate        String?
   createdAt              DateTime?            @default(now())
   updatedAt              DateTime?            @updatedAt
