@@ -10,8 +10,9 @@ import { useSession } from 'next-auth/react'
 const NavBar = () => {
 
   const { data: session, status } = useSession();
-  const first = session?.user?.name?.split(' ')[0][0];
-  const last = session?.user?.name?.split(' ')[1][0];
+  const first = session?.user?.name?.split(' ')[0]?.[0] || '';
+  const last = session?.user?.name?.split(' ')[1]?.[0] || '';
+
 
   return (
     <nav className='h-10 flex justify-between items-center my-4 px-4 md:px-0'>
