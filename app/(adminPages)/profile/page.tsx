@@ -17,8 +17,8 @@ const Profile = () => {
   }
   
   return (
-    <div className='grid place-content-center h-full m-auto container'>
-        <div className='w-[400px] md:w-[700px] border bg-white p-8 md:p-4 text-sm md:text-lg rounded-xl'>
+    <div className='grid place-content-center h-[calc(100vh-150px)]'>
+        <div className='w-[380px] md:w-[700px] border bg-white p-8 md:p-4 text-sm md:text-lg rounded-xl'>
           <UserProfile />
         </div>
       </div>
