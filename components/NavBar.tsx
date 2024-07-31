@@ -19,10 +19,10 @@ const NavBar = () => {
       <div className='flex justify-between items-center w-full'>
         <Link href="/dashboard" className='text-sm md:text-xl font-extrabold text-green-dsn py-4 rounded-xl max-w-[150px] md:max-w-full'>DSN Community Certificate Issuer</Link>
 
-        <div className='hidden h-10 rounded-full border-2 bg-slate-100 md:flex items-center justify-center space-x-2 px-2 hover:cursor-pointer active:bg-slate-200 transition-all'>
-        <CircleUser /> <span className='text-green-dsn font-bold'>{first} {last}</span>
+        <Link href="/dashboard" className='hidden h-10 rounded-full border-2 bg-slate-100 md:flex items-center justify-center space-x-2 px-2 hover:cursor-pointer active:bg-slate-200 transition-all'>
+         <CircleUser /> <span className='text-green-dsn font-bold'>{first} {last}</span>
+        </Link>
         </div>
-      </div>
         <div className='cursor-pointer z-30 md:hidden'>
           <MobileMenu />
         </div>
