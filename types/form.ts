@@ -31,6 +31,6 @@ export type FormFieldProps = {
         required_error: "required field",
         invalid_type_error: "Your Certificate Number is required",
       })
-      .min(12)
+      .min(10)
       .max(12),
   })
