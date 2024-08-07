@@ -25,8 +25,8 @@ export default function RootLayout({
   return (
     <SessionWrapper>
       <html lang="en">
-      <body className={`${poppins.variable}`}>
-              {children}
+        <body className={`${poppins.variable}`}>
+          {children}
         </body>
       </html>
     </SessionWrapper>
