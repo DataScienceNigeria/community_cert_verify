@@ -10,6 +10,12 @@ https://youtu.be/N_sUsq_y10U
 
 First, run the development server:
 
+
+ "mongodb+srv://link:link@cluster0.rujz1et.mongodb.net/Cluster0?retryWrites=true&w=majority"
+
+  url      = "mongodb+srv://dsn:dsn@check4me.goo8s.mongodb.net/?retryWrites=true&w=majority&appName=Check4Me"
+<!--  -->
+
 ```bash
 npm run dev
 # or
