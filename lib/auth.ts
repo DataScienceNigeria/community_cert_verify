@@ -40,8 +40,6 @@ export const authOptions: NextAuthOptions = {
                 }) 
                 if (!user) {
                     throw new Error("No user found with the given email");
-                }else {
-                    console.log("Logged In", user)
                 }
 
                 // const bcrypt = require('bcrypt');
@@ -52,7 +50,7 @@ export const authOptions: NextAuthOptions = {
                 // }
 
                 if (credentials?.password === user.password) {
-                    console.log("Yeah")
+                    console.log("Sure, same password")
                     return user;
                 } else {
                     throw new Error("Invalid password");
