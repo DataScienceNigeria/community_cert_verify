@@ -18,19 +18,19 @@ const Footer = () => {
       <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
           <span>Connect with us</span>
           <div className='flex justify-center items-center gap-4 text-green-dsn'>
-            <Link href="https://web.facebook.com/dsnailive?_rdc=1&_rdr">
+            <Link href="https://web.facebook.com/dsnailive?_rdc=1&_rdr" target='_blank'>
               <FiFacebook size={25} className='cursor-pointer'  href=''/>
             </Link>
-            <Link href="https://www.instagram.com/dsn_ai_network/">
+            <Link href="https://www.instagram.com/dsn_ai_network/" target='_blank'>
               <FiInstagram size={25} className='cursor-pointer'/>
             </Link>
-            <Link href="https://www.linkedin.com/company/dsnai/mycompany/">
+            <Link href="https://www.linkedin.com/company/dsnai/mycompany/" target='_blank'>
               <FiLinkedin size={25} className='cursor-pointer' />
             </Link>
-            <Link href="https://x.com/dsn_ai_network">
+            <Link href="https://x.com/dsn_ai_network" target='_blank'>
               <FiTwitter size={25} className='cursor-pointer' fill='green'/>
             </Link>
-            <Link href="https://www.youtube.com/@dsnai">
+            <Link href="https://www.youtube.com/@dsnai" target='_blank'>
               <FiYoutube size={25} className='cursor-pointer'/>
             </Link>
           </div>
