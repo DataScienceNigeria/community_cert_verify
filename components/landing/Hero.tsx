@@ -42,7 +42,7 @@ export function Hero() {
                         <span>{ index === 0? "Ease!": "Easy!" }</span>
                       </span>
 
-                      <div className={`absolute bottom-0 w-[800px] flex ${index === 1 ? "left-32": "left-24"}`}>
+                      <div className={`absolute bottom-0 w-[800px] flex ${index === 1 ? "left-32": "left-24 md:left-80"}`}>
                         <Image alt="path"  src="/path.png" 
                         sizes="(max-width: 400px) 100vw, 400px"
                         width={200}

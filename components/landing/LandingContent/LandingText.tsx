@@ -7,13 +7,13 @@ import { FiCheckSquare } from "react-icons/fi";
 
 export const HeroText = [
     {
-        title: "Data Science Nigeria Learners' Portal",
-        subtitle: 'Access and Share Certificate with',
+        title: "Data Science Nigeria Consolidated Certificate Portal",
+        subtitle: 'Access and Certify Certificate with',
         buttonText: 'Get Started',
         buttonLink: '/login'
     },
     {
-        title: "Data Science Nigeria Learners' Portal",
+        title: "Data Science Nigeria Consolidated Certificate Portal",
         subtitle: 'Certificate Confirmation made',
         buttonText: 'Get Started',
         buttonLink: '/login'
