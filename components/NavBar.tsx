@@ -5,6 +5,7 @@ import {MobileMenu} from './MobileMenu';
 import Link from 'next/link';
 import {CircleUser} from "lucide-react";
 import { useSession } from 'next-auth/react'
+import { sideNav } from './Navs/SideNav';
 
 
 const NavBar = () => {
@@ -24,7 +25,7 @@ const NavBar = () => {
         </Link>
         </div>
         <div className='cursor-pointer z-30 md:hidden'>
-          <MobileMenu />
+          <MobileMenu  navs={sideNav}/>
         </div>
     </nav>
   )

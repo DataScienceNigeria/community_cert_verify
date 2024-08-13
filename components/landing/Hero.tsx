@@ -1,90 +1,76 @@
-"use client";
+"use client"
 
+import * as React from "react"
+import Autoplay from "embla-carousel-autoplay"
 
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Image from "next/image";
+import { HeroText } from "./LandingContent/LandingText"
+import { Button } from "../ui/button"
+import Link from "next/link"
 
-// import * as React from "react"
-// import Autoplay from "embla-carousel-autoplay"
+export function Hero() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
 
-// import { Card, CardContent } from "@/components/ui/card"
-// import {
-//   Carousel,
-//   CarouselContent,
-//   CarouselItem,
-//   CarouselNext,
-//   CarouselPrevious,
-// } from "@/components/ui/carousel"
-// import Image from "next/image";
-
-// export function CarouselPlugin() {
-//   const plugin = React.useRef(
-//     Autoplay({ delay: 2000, stopOnInteraction: true })
-//   )
-
-//   return (
-//     <Carousel
-//       plugins={[plugin.current]}
-//       className="w-full h-full max-w-[1500px] mx-auto bg-white"
-//       onMouseEnter={plugin.current.stop}
-//       onMouseLeave={plugin.current.reset}
-//     >
-//       <CarouselContent>
-//         {Array.from({ length: 5 }).map((_, index) => (
-//           <CarouselItem key={index}>
-//             <div className="p-1">
-//               <Card className="">
-//                 <CardContent className="flex items-center justify-between p-6 relative h-full border-0">
-//                   <Image 
-//                   src="/hero.png"
-//                   alt="hero"
-//                   width={400}
-//                   height={400}
-//                   />
-//                   <span className="text-4xl font-semibold">{index + 1}</span>
-//                 </CardContent>
-//               </Card>
-//             </div>
-//           </CarouselItem>
-//         ))}
-//       </CarouselContent>
-//       <CarouselPrevious />
-//       <CarouselNext />
-//     </Carousel>
-//   )
-// }
-
-
-import Carousel from 'react-bootstrap/Carousel';
-// import ExampleCarouselImage from 'components/ExampleCarouselImage';
-
-const UncontrolledExample = () => {
   return (
-    <Carousel>
-      <Carousel.Item>
-        {/* <ExampleCarouselImage text="First slide" /> */}
-        <div>Hello</div>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        {/* <ExampleCarouselImage text="Second slide" /> */}
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        {/* <ExampleCarouselImage text="Third slide" /> */}
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-  );
-}
+    <Carousel
+      plugins={[plugin.current]}
+      className="w-full h-full mx-auto pt-6"
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
+    >
+      <CarouselContent className="pb-0">
+        {HeroText.map((item, index) => (
+          <CarouselItem key={index}>
+              <Card className="">
+                <CardContent className="flex flex-col md:flex-row items-center justify-between relative border-0">
+                  <div>
+                    <div className="flex flex-col relative">
+                      <h5 className="text-2xl font-bold text-green-dsn">{item.title}</h5>
 
-export default UncontrolledExample;
+                      <span className='text-[45px] text-black/50 mt-5'>
+                        {item.subtitle}{' '}
+                        <span>{ index === 0? "Ease!": "Easy!" }</span>
+                      </span>
+
+                      <div className={`absolute bottom-0 w-[800px] flex ${index === 1 ? "left-32": "left-24"}`}>
+                        <Image alt="path"  src="/path.png" 
+                        sizes="(max-width: 400px) 100vw, 400px"
+                        width={200}
+                        height={200}
+                        className="w-[136px] h-[15px]"/>
+                      </div>
+                    </div>
+                    
+                    <Link href="/login">
+                      <Button className="mt-8 rounded-xl md:w-[150px]">
+                        {item.buttonText}
+                      </Button>
+                    </Link>
+                  </div>
+                  <Image 
+                  src="/certVerify.png"
+                  alt="hero"
+                  width={400}
+                  height={400}
+                  className="w-[700px] h-full"
+                  />
+                </CardContent>
+              </Card>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  )
+}

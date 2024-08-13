@@ -12,7 +12,7 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "3rem",
       screens: {
         "2xl": "1400px",
       },
@@ -23,13 +23,19 @@ const config = {
         input: "var(--input)",
         ring: "var(--ring)",
         green: {
-          dsn: '#009548',
+          dsn: '#0A7A0A',
+          dsn_light_green: '#66AC66',
+          dsn_lighter_green: '#CEE5CE',
+        },
+        red: {
+          dsn: '#FF0000',
+          dsn_light_red: '#FFF2F2',
+          dsn_lighter_red: '#FFCCCC',
         },
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {
           DEFAULT: "var(--primary)",
-          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
           DEFAULT: "var(--secondary)",
