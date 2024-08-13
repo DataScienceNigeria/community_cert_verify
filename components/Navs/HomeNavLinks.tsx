@@ -12,7 +12,7 @@ export const HomeNavsLinks = [
       path: '/faq'
   },
   {
-      title: 'Login In',
+      title: 'Verify',
       path: '/student_login'
   },
 ]

@@ -9,13 +9,13 @@ export const HeroText = [
     {
         title: "Data Science Nigeria Consolidated Certificate Portal",
         subtitle: 'Access and Certify Certificate with',
-        buttonText: 'Get Started',
+        buttonText: 'Verify Now',
         buttonLink: '/login'
     },
     {
         title: "Data Science Nigeria Consolidated Certificate Portal",
         subtitle: 'Certificate Confirmation made',
-        buttonText: 'Get Started',
+        buttonText: 'Verify Now',
         buttonLink: '/login'
     },
 ]
