@@ -22,7 +22,7 @@ const AdminLogin = () => {
   // }, []);
 
   return (
-    <section className='h-screen w-screen bg-white relative px-4'>
+    <section className='h-screen w-screen bg-white relative px-2'>
       {/* {isMobile && (
         <div className="text-center">
            <Image 
