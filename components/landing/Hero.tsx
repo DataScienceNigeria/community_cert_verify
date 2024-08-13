@@ -52,13 +52,13 @@ export function Hero() {
                     </div>
                     
                     <Link href="/student_login">
-                      <Button className="mt-8 md:w-[150px]">
+                      <Button className="mt-8 md:max-w-[350px]">
                         {item.buttonText}
                       </Button>
                     </Link>
                   </div>
                   <Image 
-                  src="/certVerify.png"
+                  src={item.image || "/certVerify.png"}
                   alt="hero"
                   width={400}
                   height={400}
