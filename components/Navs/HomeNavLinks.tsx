@@ -1,7 +1,7 @@
 export const HomeNavsLinks = [
   {
       title: 'Home',
-      path: '/home'
+      path: '/'
   },
   {
       title: 'Blog',
@@ -13,6 +13,6 @@ export const HomeNavsLinks = [
   },
   {
       title: 'Login In',
-      path: '/login'
+      path: '/student_login'
   },
 ]

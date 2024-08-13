@@ -17,8 +17,8 @@ const NavsLinks = () => {
         <div className='hidden md:flex justify-between items-center w-full'>
             <ul className='flex gap-x-4 text-sm text-black/50'>
                 {HomeNavsLinks.map((nav, index) => (
-                <li key={index} className={`cursor-pointer transition-all ${pathname === nav.path ? 'bg-green-dsn text-white' : ''} font-semibold py-1 rounded-xl`}>
-                    <Link href={nav.path} className={`${nav.title === "Login In"? "border-green-dsn border rounded-xl": ""} px-8 py-1`}>{nav.title}</Link>
+                <li key={index} className={`cursor-pointer transition-all py-2 ${pathname === nav.path ? 'bg-green-dsn text-white' : ''} font-semibold py-1`}>
+                    <Link href={nav.path} className={`${nav.title === "Login In"? "border-green-dsn border": ""} px-8 py-2`}>{nav.title}</Link>
                 </li>
                 ))}
             </ul>

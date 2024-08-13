@@ -1,31 +1,31 @@
 import React from 'react'
-import {LoginForm} from './Form'
+import Login from './Form'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const AdminLogin = () => {
+const StudentLogin = () => {
   return (
-    <section className='h-screen w-screen bg-white'>
+    <section className='h-screen w-screen overflow-hidden '>
         
         <div className='md:grid grid-cols-2 h-full place-content-center'>
-          <div className='hidden md:block w-full order-2 relative'>
-            <Image src='/bg1.png' alt='bg' width={500} height={500} className='h-full w-full'/>
+          <div className='hidden md:block w-full relative'>
+            <Image src='/bg1.png' alt='bg' width={500} height={500} className='h-full w-full z-0'/>
             <Image src='/logo.png' alt='bg' width={400} height={400} className='absolute translate-x-[50%] right-[50%]  top-[50%] -translate-y-[50%] z-50'/>
           </div>
           
           <div className='p-4 md:p-8 text-sm md:text-lg w-full max-w-[600px] place-self-center'>
             <Link href="/" className='px-4'>
-              <div className='flex justify-center items-center max-w-[700px] mx-auto relative'>
+              <div className='flex justify-center items-center max-w-[400px] mx-auto relative'>
                 <Image src='/logo.png' alt='logo' width={100} height={100} className='p-2'/>
                 <div className='border-l-2 h-32 mx-8 border-black/30'></div>
                 <div>
-                  <p className='text-green-dsn font-extrabold text-xl'>Admin Login</p>
+                  <p className='text-green-dsn font-extrabold text-xl'>Verify your Certifcate</p>
                 </div>
               </div>
             </Link>
 
             <div className='shadow-xl bg-transparent p-4 place-content-center pb-8'>
-              <LoginForm />
+              <Login />
             </div>
             
           </div>
@@ -34,4 +34,4 @@ const AdminLogin = () => {
   )
 }
 
-export default AdminLogin;
+export default StudentLogin;

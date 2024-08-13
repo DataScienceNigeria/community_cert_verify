@@ -69,8 +69,8 @@ export function LoginForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <h1 className="text-2xl text-center">Admin Login</h1>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+        <h1 className="text-md text-black/50 max-w-[200px]">Please Enter your Details</h1>
         <FormField
           control={form.control}
           name="email"
@@ -103,11 +103,12 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="bg-green-dsn active:bg-green-500 rounded-xl w-full text-white flex items-center justify-center space-x-2">
+        <Button type="submit" className="bg-green-dsn active:bg-green-500 rounded-xl max-w-[200px] text-white flex items-center justify-center space-x-2 shadow-xl">
           {loading && (
             <ColorRingComponent size="40" isvisible={loading}  />
           )}
-          <span className="ml-4">Submit</span>
+          
+          <span className={`${loading ? "ml-4": ""}`}>Submit</span>
         </Button>
       </form>
     </Form>

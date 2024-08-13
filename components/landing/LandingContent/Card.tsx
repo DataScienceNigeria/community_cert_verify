@@ -7,7 +7,7 @@ import { CardText } from './LandingText';
 function LandingCard() {
   return (
     <>
-    <div className='flex flex-col md:flex-row justify-between items-center gap-4 py-4'>
+    <div className='flex flex-col md:flex-row justify-around items-center gap-4 py-4'>
       {
         CardText.map((card: any, index: any) => (
           console.log(card.color),

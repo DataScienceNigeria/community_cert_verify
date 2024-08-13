@@ -51,8 +51,8 @@ export function Hero() {
                       </div>
                     </div>
                     
-                    <Link href="/login">
-                      <Button className="mt-8 rounded-xl md:w-[150px]">
+                    <Link href="/student_login">
+                      <Button className="mt-8 md:w-[150px]">
                         {item.buttonText}
                       </Button>
                     </Link>
