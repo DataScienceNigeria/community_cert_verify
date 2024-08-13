@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const StudentLogin = () => {
   return (
-    <section className='h-screen w-screen overflow-hidden flex justify-center items-center md:flex-none p-4'>
+    <section className='h-screen w-screen overflow-hidden'>
         
         <div className='md:grid grid-cols-2 h-full place-content-center'>
           <div className='hidden md:block w-full relative'>
