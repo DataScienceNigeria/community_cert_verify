@@ -124,7 +124,7 @@ const CertificateTable = () => {
         <TableCaption className='font-extrabold'>A list of all available Admins</TableCaption>
         <TableHeader className='font-extrabold uppercase'>
           <TableRow className='border-collapse border border-gray-800'>
-            <TableHead onClick={() => toggleSort('id')}>Id</TableHead>
+            {/* <TableHead onClick={() => toggleSort('id')}>Id</TableHead> */}
             <TableHead onClick={() => toggleSort('email')}>Email</TableHead>
             <TableHead onClick={() => toggleSort('name')}>Name</TableHead>
             <TableHead onClick={() => toggleSort('role')}>Role</TableHead>
@@ -137,7 +137,7 @@ const CertificateTable = () => {
         <TableBody className=''>
           {loading ? <TableRow><TableCell colSpan={7}>Loading...</TableCell></TableRow> : AdminsToDisplayAfterFilter?.map(admin => (
             <TableRow key={admin.id} className='border-collapse border border-gray-800'>
-              <TableCell>{admin.id}</TableCell>
+              {/* <TableCell>{admin.id}</TableCell> */}
               <TableCell>{admin.email}</TableCell>
               <TableCell>{admin.name}</TableCell>
               <TableCell>{admin.role}</TableCell>
@@ -156,12 +156,13 @@ const CertificateTable = () => {
             </TableRow>
           ))}
         </TableBody>
-      </Table>
+      
       <div className='my-4 flex space-x-4 items-center border-collapse border border-gray-800 w-auto'>
         <Button disabled={page <= 1} onClick={() => {paginationNavigation("backward")}} className='border p-2 cursor-pointer hover:bg-green-500'>Previous</Button>
         <span> Page {page} of {totalPages} </span>
         <Button disabled={page >= totalPages} onClick={() => {paginationNavigation("forward")}} className='border p-2 cursor-pointer hover:bg-green-500'>Next</Button>
       </div>
+      </Table>
     </div>
     
   );
