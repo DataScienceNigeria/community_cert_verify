@@ -34,7 +34,7 @@ const Uploads = () => {
 
 
   return (
-    <div className='flex flex-col md:flex-row  items-center justify-center gap-x-2 space-y-4 md:space-y-0 h-[calc(100vh-100px)]'>
+    <div className='flex flex-col md:flex-row  gap-x-2 space-y-4 md:space-y-0  items-center justify-center h-full w-full px-4 py-8'>
       <form onSubmit={handleSubmit} className='flex flex-col space-y-4'>
         <input
           ref={inputRef}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {getOneAdmin} from '@/utils/queries/admins/manipulateAdmins'
+import { useSession } from "next-auth/react"
 import Link from 'next/link';
 
 type adminDeTailsType = {
@@ -16,22 +17,26 @@ type adminDeTailsType = {
 
 const UserProfile =   () => {
 
+  const { data: session, status } = useSession();
   const [adminDeTails, setAdminDeTails] = useState<adminDeTailsType>(null);
 
-  const getAdmin = async () => {
-    const adminDeTails =  await getOneAdmin({email: "teju@datasciencenigeria.ai"});
-    setAdminDeTails(adminDeTails)
-
-  }
 
   useEffect(() => {
-    getAdmin();
-  }, [])
-
-
-
+    // Move the function inside
+    const getAdmin = async () => {
+      if (session?.user?.email) {
+        const details = await getOneAdmin({ email: session.user.email });
+        setAdminDeTails(details);
+      }
+    };
   
-  
+    if (status === "authenticated") {
+      console.log(status)
+      getAdmin();
+    }
+  }, [status, session]);
+
+
   return (
     <>
       <div className='flex justify-between items-center'>
@@ -54,7 +59,7 @@ const UserProfile =   () => {
 
       <div className='flex justify-between items-center'>
         <span>Phone Number</span>
-        <span>09038433047</span>
+        <span>{adminDeTails?.phone}</span>
       </div>
       <div className='border-t border-gray-300 my-4'></div>
 

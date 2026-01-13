@@ -96,7 +96,7 @@ export default function Analytics() {
   }, []);
 
   return (
-    <div className="w-full border bg-white pr-4 text-sm md:text-lg flex flex-col md:flex-row">
+    <div className="w-full border bg-white pr-4 text-sm md:text-lg flex flex-col md:flex-row items-center justify-center h-full">
       <Card className="md:w-1/2">
         <CardHeader>
           <CardTitle>Certificate Analytics</CardTitle>

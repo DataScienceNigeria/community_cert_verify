@@ -29,7 +29,7 @@ import { DeleteAdmin } from '@/utils/queries/admins/manipulateAdmins';
         <AlertDialogTrigger asChild>
           <Button variant="outline">{open}</Button>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="bg-slate-200">
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
@@ -37,9 +37,9 @@ import { DeleteAdmin } from '@/utils/queries/admins/manipulateAdmins';
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>
-                <Button onClick={ handleDelete }>Continue</Button>
+            <AlertDialogCancel className="text-white">Cancel</AlertDialogCancel>
+            <AlertDialogAction  className="bg-red-500 text-white">
+                <Button onClick={ handleDelete }  className="bg-red-500 text-white">Continue</Button>
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

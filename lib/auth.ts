@@ -1,7 +1,6 @@
 import { prisma } from "@/db/client";
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
 
 declare module "next-auth" {
     interface Session {
@@ -11,7 +10,9 @@ declare module "next-auth" {
   }
 
 export const authOptions: NextAuthOptions = {
+    secret: process.env.NEXTAUTH_SECRET,
     session : {
+        
         strategy: "jwt",
     },
     pages: {
@@ -21,10 +22,10 @@ export const authOptions: NextAuthOptions = {
         verifyRequest: "/auth/verify-request",
     },
     providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID as string,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
-        }),
+        // GoogleProvider({
+        //     clientId: process.env.GOOGLE_CLIENT_ID as string,
+        //     clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
+        // }),
 
         CredentialsProvider({
             name: "Credentials",

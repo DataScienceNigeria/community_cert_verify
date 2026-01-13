@@ -9,9 +9,9 @@ const layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
         <NavBar />
-        <div className='flex gap-x-4 justify-center'>
+        <div className='flex gap-x-4 justify-center md:mt-20 p-4'>
             <SideBar />
-            <div className='w-[80%] pr-2 md:pr-4'>
+            <div className='w-[80%] md:pr-4'>
                 {children}
                 <Toaster />
             </div>

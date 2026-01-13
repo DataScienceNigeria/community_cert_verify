@@ -104,7 +104,7 @@ const CertificateTable = () => {
 
 
   return (
-    <div className='w-[100%] md:px-4'>
+    <div className='w-full md:px-4 h-auto'>
       
      { session?.role === "superadmin" ? <AddSliderAdmin /> : null }
 
@@ -144,7 +144,7 @@ const CertificateTable = () => {
 
               { session?.role === "superadmin" ?
                 
-              <TableCell className='md:space-x-4 text-center border-2 space-y-2 lg:space-y-0'>
+              <TableCell className='md:space-x-4 text-center border-2 space-y-2 lg:space-y-0 text-white'>
                 {WarnAction(admin, "Delete", `
                   This action cannot be undone. This will permanently delete the
                   user and remove his/her from database. Do you want to continue?  
