@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  openssl rand -base64 32
 
  yeah open it
@@ -74,3 +75,6 @@ model Student_Certificate {
   createdAt              DateTime?            @default(now())
   updatedAt              DateTime?            @updatedAt
 }
+=======
+# community_cert_verify
+>>>>>>> 12608f1df781f25b09d3b05d9230582374a8cc1c
