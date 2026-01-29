@@ -13,7 +13,7 @@ const End = () => {
           <a href='https://equalyz.ai/cookie-policy/' className='text-white'>Cookie Policy</a>
         </div>
       </div>
-      <p className='text-black/50 text-xs text-center pt-2'>POWERED BY <strong>SOFTMAX TECHNOLOGIES SOLUTION</strong> | © {new Date().getFullYear()}</p>
+      <p className='text-black/50 text-xs text-center pt-2'>DEVELOPED BY <strong>DSN SOFTWARE DEVELOPERS</strong> | © {new Date().getFullYear()}</p>
 
     </>
   )

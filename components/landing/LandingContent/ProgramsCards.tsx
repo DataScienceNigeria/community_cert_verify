@@ -1,52 +1,69 @@
-"use client"; 
+"use client";
 
-import Card from 'react-bootstrap/Card';
-import { Programs } from './LandingText';
-import Image from 'next/image';
+import Image from "next/image";
+import { Programs } from "./LandingText";
 
 function ProgramsCards() {
   return (
-    <>
-    <section className=''>
-      <div className='text-center text-2xl font-semibold mb-4'>Learn More About our Communities</div>
-      <div className='flex flex-col md:flex-row justify-around items-center gap-4 py-4'>
-        {
-          Programs.map((card: any, index: any) => (
-            console.log(card.color),
-            <Card
-            bg={card.color}
-            key={card.color}
-            text='primary'
-            // style={{ width: '18rem' }}
-            className={`mb-2 border p-5 rounded-xl space-y-4 flex-1 shadow-2xl bg-[${card.color}] h-[500px] overflow-y-auto`}
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+      {/* Section Header */}
+      <div className="text-center max-w-2xl mx-auto mb-12 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+          Learn More About Our Communities
+        </h2>
+        <p className="mt-3 text-sm md:text-base text-gray-600">
+          Discover our growing communities designed to empower learning,
+          innovation, and collaboration.
+        </p>
+      </div>
+
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {Programs.map((card: any, index: number) => (
+          <div
+            key={index}
+            className="group rounded-2xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300"
           >
-            <Card.Header>
-              <div className='relative'>
-                <Image 
-                  src={card.image}
-                  alt='Arewa4Ladies'
-                  width={300}
-                  height={300}
-                  className='hover:scale-[1.1] w-full h-[250px] max-h-[250px] object-cover'
-                />
-              </div>
-            </Card.Header>
-            <Card.Body className='h-auto'>
-              <Card.Title className='text-black font-semibold font text-xl'>{card.heading}</Card.Title>
-              <div className='mt-5 h-auto text-justify'>
+            {/* Image */}
+            <div className="relative h-56 overflow-hidden">
+              <Image
+                src={card.image}
+                alt={card.heading}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition" />
+            </div>
+
+            {/* Content */}
+            <div className="p-6 flex flex-col">
+              <h3 className="text-lg md:text-xl font-semibold text-gray-900">
+                {card.heading}
+              </h3>
+
+              <p className="mt-3 text-sm text-gray-600 leading-relaxed">
                 {card.smallText}
-                <details className='hover:cursor-pointer'>
-                  <summary className='hover:cursor-pointer'>Read more</summary>
+              </p>
+
+              <details className="mt-4 text-sm text-gray-700">
+                <summary className="cursor-pointer font-medium text-green-600 hover:underline">
+                  Read more
+                </summary>
+                <p className="mt-2 leading-relaxed text-gray-600">
                   {card.bigText}
-                </details>
-              </div>
-            </Card.Body>
-          </Card>
-          ))
-        }
-        </div>
-      </section>
-    </>
+                </p>
+              </details>
+
+              {/* Accent line */}
+              <div
+                className="mt-6 h-1 w-16 rounded-full"
+                style={{ backgroundColor: card.color }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 

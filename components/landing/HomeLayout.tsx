@@ -11,12 +11,12 @@ const Layout = ( ) => {
   return (
     <>
     <HeaderNav />
-      <div className='container'>
       <Hero />
-      <Purpose />
-      <Security />
-      <Footer />
-    </div>
+      <div className='container'>
+        <Purpose />
+        <Security />
+        <Footer />
+      </div>
     <End /> 
     </>
     
